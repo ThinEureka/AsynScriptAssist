@@ -45,3 +45,29 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+AsynScriptAssist_IntegrationTests/bin/Debug/AsynScriptAssist.dll
+*.pdb
+AsynScriptAssist_IntegrationTests/bin/Debug/AsynScriptAssist_IntegrationTests.dll
+AsynScriptAssist_IntegrationTests/obj/Debug/AsynScriptAssist_IntegrationTests.dll
+*.cache
+AsynScriptAssist_UnitTests/bin/Debug/AsynScriptAssist.dll
+obj/Debug/AsynScriptAssist.csproj.FileListAbsolute.txt
+obj/Debug/AsynScriptAssist.cto
+*.original
+AsynScriptAssist_IntegrationTests/bin/Debug/Microsoft.VSSDK.TestHostFramework.dll
+AsynScriptAssist_UnitTests/bin/Debug/AsynScriptAssist_UnitTests.dll
+AsynScriptAssist_UnitTests/bin/Debug/Microsoft.VSSDK.TestHostFramework.dll
+AsynScriptAssist_IntegrationTests/obj/Debug/AsynScriptAssist_IntegrationTests.csproj.FileListAbsolute.txt
+AsynScriptAssist_UnitTests/bin/Debug/Microsoft.VSSDK.UnitTestLibrary.dll
+bin/Debug/AsynScriptAssist.dll
+bin/Debug/AsynScriptAssist.vsix
+obj/Debug/Eureka.AsynScriptAssist.Resources.resources
+obj/Debug/VSPackage.resources
+*.tlog
+obj/Debug/extension.vsixmanifest
+*.pkgdef
+obj/Debug/AsynScriptAssist.csproj.VsixDeployedFileListAbsolute.txt
+AsynScriptAssist_UnitTests/obj/Debug/AsynScriptAssist_UnitTests.csproj.FileListAbsolute.txt
+obj/Debug/AsynScriptAssist.dll
+AsynScriptAssist_UnitTests/obj/Debug/AsynScriptAssist_UnitTests.dll
+bin/Debug/extension.vsixmanifest
