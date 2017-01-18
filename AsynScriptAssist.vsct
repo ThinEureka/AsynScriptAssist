@@ -71,7 +71,15 @@
               <CommandFlag>DynamicVisibility</CommandFlag>
           If you do not want an image next to your command, remove the Icon node /> -->
 
-      <Button guid="guidAsynScriptAssistCmdSet" id="cmdidAsynScriptAssist" priority="0x0100" type="Button">
+      <Button guid="guidAsynScriptAssistCmdSet" id="cmdidLoad" priority="0x0100" type="Button">
+        <Parent guid="guidAsynScriptAssistCmdSet" id="MyMenuGroup" />
+        <Icon guid="guidImages" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Load</ButtonText>
+        </Strings>
+      </Button>
+
+      <Button guid="guidAsynScriptAssistCmdSet" id="cmdidNext" priority="0x0100" type="Button">
         <Parent guid="guidAsynScriptAssistCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
@@ -79,7 +87,13 @@
         </Strings>
       </Button>
 
-
+      <Button guid="guidAsynScriptAssistCmdSet" id="cmdidPrev" priority="0x0100" type="Button">
+        <Parent guid="guidAsynScriptAssistCmdSet" id="MyMenuGroup" />
+        <Icon guid="guidImages" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Prev</ButtonText>
+        </Strings>
+      </Button>
 
     </Buttons>
    
@@ -108,7 +122,9 @@
     <GuidSymbol name="guidAsynScriptAssistCmdSet" value="{6774790e-42ad-4f7a-b4e8-1c2b7707553e}">
       <IDSymbol name="MyMenu" value="0x1030" />
       <IDSymbol name="MyMenuGroup" value="0x1020" />
-      <IDSymbol name="cmdidAsynScriptAssist" value="0x0100" />
+      <IDSymbol name="cmdidLoad" value="0x0100" />
+      <IDSymbol name="cmdidNext" value="0x0101" />
+      <IDSymbol name="cmdidPrev" value="0x0102" />
     </GuidSymbol>
     
     
