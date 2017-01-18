@@ -57,6 +57,14 @@
           <CommandName>AsyScriptAssist</CommandName>
         </Strings>
       </Menu>
+
+      <Menu guid="guidAsynScriptAssistCmdSet" id="SubMenu" priority="0x0100" type="Menu">
+        <Parent guid="guidAsynScriptAssistCmdSet" id="MyMenuGroup"/>
+        <Strings>
+          <ButtonText>Sub Menu</ButtonText>
+          <CommandName>Sub Menu</CommandName>
+        </Strings>
+      </Menu>
     </Menus>
     
     <!--Buttons section. -->
@@ -110,8 +118,11 @@
  
   </Commands>
 
-
-
+  <KeyBindings>
+     <KeyBinding guid="guidAsynScriptAssistCmdSet" id="cmdidLoad" editor="guidVSStd97" key1="1" mod1="CONTROL"/>
+     <KeyBinding guid="guidAsynScriptAssistCmdSet" id="cmdidNext" editor="guidVSStd97" key1="2" mod1="CONTROL"/>
+     <KeyBinding guid="guidAsynScriptAssistCmdSet" id="cmdidPrev" editor="guidVSStd97" key1="3" mod1="CONTROL"/>
+  </KeyBindings>
 
 
   <Symbols>
@@ -120,7 +131,8 @@
     
     <!-- This is the guid used to group the menu commands together -->
     <GuidSymbol name="guidAsynScriptAssistCmdSet" value="{6774790e-42ad-4f7a-b4e8-1c2b7707553e}">
-      <IDSymbol name="MyMenu" value="0x1030" />
+      <IDSymbol name="SubMenu" value="0x1031" />
+      <IDSymbol name="MyMenu" value="0x1030" />   
       <IDSymbol name="MyMenuGroup" value="0x1020" />
       <IDSymbol name="cmdidLoad" value="0x0100" />
       <IDSymbol name="cmdidNext" value="0x0101" />

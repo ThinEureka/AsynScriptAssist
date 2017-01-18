@@ -64,9 +64,17 @@ namespace Eureka.AsynScriptAssist
             if ( null != mcs )
             {
                 // Create the command for the menu item.
-                CommandID menuCommandID = new CommandID(GuidList.guidAsynScriptAssistCmdSet, (int)PkgCmdIDList.cmdidAsynScriptAssist);
-                MenuCommand menuItem = new MenuCommand(MenuItemCallback, menuCommandID );
+                CommandID menuCommandID = new CommandID(GuidList.guidAsynScriptAssistCmdSet, (int)PkgCmdIDList.cmdidLoad);
+                MenuCommand menuItem = new MenuCommand(MenuItemLoadCallback, menuCommandID );
                 mcs.AddCommand( menuItem );
+
+                menuCommandID = new CommandID(GuidList.guidAsynScriptAssistCmdSet, (int)PkgCmdIDList.cmdidNext);
+                menuItem = new MenuCommand(MenuItemNextCallback, menuCommandID);
+                mcs.AddCommand(menuItem);
+
+                menuCommandID = new CommandID(GuidList.guidAsynScriptAssistCmdSet, (int)PkgCmdIDList.cmdidPrec);
+                menuItem = new MenuCommand(MenuItemPrecCallback, menuCommandID);
+                mcs.AddCommand(menuItem);
             }
 
             // get a reference to the Output window
@@ -79,7 +87,7 @@ namespace Eureka.AsynScriptAssist
         /// See the Initialize method to see how the menu item is associated to this function using
         /// the OleMenuCommandService service and the MenuCommand class.
         /// </summary>
-        private void MenuItemCallback(object sender, EventArgs e)
+        private void MenuItemLoadCallback(object sender, EventArgs e)
         {
             // Show a Message Box to prove we were here
             IVsUIShell uiShell = (IVsUIShell)GetService(typeof(SVsUIShell));
@@ -88,7 +96,47 @@ namespace Eureka.AsynScriptAssist
             Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(uiShell.ShowMessageBox(
                        0,
                        ref clsid,
-                       "AsynScriptAssist",
+                       "1",
+                       string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.ToString()),
+                       string.Empty,
+                       0,
+                       OLEMSGBUTTON.OLEMSGBUTTON_OK,
+                       OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST,
+                       OLEMSGICON.OLEMSGICON_INFO,
+                       0,        // false
+                       out result));
+        }
+
+        private void MenuItemNextCallback(object sender, EventArgs e)
+        {
+            // Show a Message Box to prove we were here
+            IVsUIShell uiShell = (IVsUIShell)GetService(typeof(SVsUIShell));
+            Guid clsid = Guid.Empty;
+            int result;
+            Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(uiShell.ShowMessageBox(
+                       0,
+                       ref clsid,
+                       "2",
+                       string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.ToString()),
+                       string.Empty,
+                       0,
+                       OLEMSGBUTTON.OLEMSGBUTTON_OK,
+                       OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST,
+                       OLEMSGICON.OLEMSGICON_INFO,
+                       0,        // false
+                       out result));
+        }
+
+        private void MenuItemPrecCallback(object sender, EventArgs e)
+        {
+            // Show a Message Box to prove we were here
+            IVsUIShell uiShell = (IVsUIShell)GetService(typeof(SVsUIShell));
+            Guid clsid = Guid.Empty;
+            int result;
+            Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(uiShell.ShowMessageBox(
+                       0,
+                       ref clsid,
+                       "3",
                        string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.ToString()),
                        string.Empty,
                        0,

@@ -6,8 +6,9 @@ namespace Eureka.AsynScriptAssist
 {
     static class PkgCmdIDList
     {
-        public const uint cmdidAsynScriptAssist =        0x100;
-
+        public const uint cmdidLoad =        0x100;
+        public const uint cmdidNext =        0x101;
+        public const uint cmdidPrec =        0x102;
 
     };
 }
