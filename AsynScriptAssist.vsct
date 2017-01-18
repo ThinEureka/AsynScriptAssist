@@ -42,12 +42,22 @@
     <Groups>
 
       <Group guid="guidAsynScriptAssistCmdSet" id="MyMenuGroup" priority="0x0600">
-        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS"/>
+        <Parent guid="guidAsynScriptAssistCmdSet" id="MyMenu"/>
       </Group>
       
 
 
     </Groups>
+
+    <Menus>
+      <Menu guid="guidAsynScriptAssistCmdSet" id="MyMenu" priority="0x700" type="Menu">
+        <Parent guid="guidSHLMainMenu"  id="IDG_VS_MM_TOOLSADDINS" />
+        <Strings>
+          <ButtonText>AsyScriptAssist</ButtonText>
+          <CommandName>AsyScriptAssist</CommandName>
+        </Strings>
+      </Menu>
+    </Menus>
     
     <!--Buttons section. -->
     <!--This section defines the elements the user can interact with, like a menu command or a button 
@@ -65,7 +75,7 @@
         <Parent guid="guidAsynScriptAssistCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
-          <ButtonText>AsynScriptAssist</ButtonText>
+          <ButtonText>Next</ButtonText>
         </Strings>
       </Button>
 
@@ -96,7 +106,7 @@
     
     <!-- This is the guid used to group the menu commands together -->
     <GuidSymbol name="guidAsynScriptAssistCmdSet" value="{6774790e-42ad-4f7a-b4e8-1c2b7707553e}">
-
+      <IDSymbol name="MyMenu" value="0x1030" />
       <IDSymbol name="MyMenuGroup" value="0x1020" />
       <IDSymbol name="cmdidAsynScriptAssist" value="0x0100" />
     </GuidSymbol>

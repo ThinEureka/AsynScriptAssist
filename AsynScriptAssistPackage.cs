@@ -68,6 +68,9 @@ namespace Eureka.AsynScriptAssist
                 MenuCommand menuItem = new MenuCommand(MenuItemCallback, menuCommandID );
                 mcs.AddCommand( menuItem );
             }
+
+            // get a reference to the Output window
+            output = (IVsOutputWindowPane)this.GetService(typeof(SVsGeneralOutputWindowPane));
         }
         #endregion
 
@@ -95,6 +98,8 @@ namespace Eureka.AsynScriptAssist
                        0,        // false
                        out result));
         }
+
+        IVsOutputWindowPane output;
 
     }
 }
