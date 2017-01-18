@@ -80,7 +80,7 @@ namespace Eureka.AsynScriptAssist
             // get a reference to the Output window
             output = (IVsOutputWindowPane)this.GetService(typeof(SVsGeneralOutputWindowPane));
             var dte = (EnvDTE.DTE)this.GetService(typeof(EnvDTE.DTE));
-            assist = new AsynScriptAssist(dte);
+            assist = new AsynScriptAssist(this, dte);
         }
         #endregion
 
@@ -91,7 +91,7 @@ namespace Eureka.AsynScriptAssist
         /// </summary>
         private void MenuItemLoadCallback(object sender, EventArgs e)
         {
-            output.OutputString("load");
+            
             assist.load();
         }
 
@@ -105,6 +105,11 @@ namespace Eureka.AsynScriptAssist
         {
             output.OutputString("prec");
             assist.next();
+        }
+
+        void log(String str)
+        {
+            output.OutputString("str");
         }
 
         IVsOutputWindowPane output;
