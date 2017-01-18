@@ -25,8 +25,9 @@ namespace Eureka.AsynScriptAssist
         public bool load()
         {
             var solution = m_dte.Solution;
-            if (solution == null)
+            if (solution == null || !solution.IsOpen)
             {
+                log("solution is not open");
                 return false;
             }
 
@@ -35,6 +36,7 @@ namespace Eureka.AsynScriptAssist
             var configFile = directory + "\\asysAssist.xml";
             if (!File.Exists(configFile))
             {
+                log("no configFile");
                 return false;
             }
 
@@ -75,10 +77,10 @@ namespace Eureka.AsynScriptAssist
               }
             catch (Exception e)
             {
-                e.ToString();
+                log("pasing logfile erro" + e.ToString());
             }
 
-            return false;
+            return m_breakPoints != null;
         }
 
         public bool next()
@@ -132,8 +134,13 @@ namespace Eureka.AsynScriptAssist
             var breakPoint = m_breakPoints[m_breakPointIndex];
             Microsoft.VisualStudio.Shell.VsShellUtilities.OpenDocument(m_serviceProvider, breakPoint.filePath);
             m_dte.ExecuteCommand("Edit.Goto", breakPoint.lineNumber);
+            log(m_breakPointIndex.ToString() + " " + breakPoint.filePath + " " + breakPoint.lineNumber);
 
             return true;
+        }
+        private void log(String str)
+        {
+            m_serviceProvider.log(str + "\n");
         }
 
         private List<BreakPoint> m_breakPoints;

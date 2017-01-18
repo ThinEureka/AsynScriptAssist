@@ -107,9 +107,9 @@ namespace Eureka.AsynScriptAssist
             assist.next();
         }
 
-        void log(String str)
+        public void log(String str)
         {
-            output.OutputString("str");
+            output.OutputString(str);
         }
 
         IVsOutputWindowPane output;
