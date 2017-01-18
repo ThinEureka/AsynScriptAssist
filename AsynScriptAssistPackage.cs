@@ -79,6 +79,8 @@ namespace Eureka.AsynScriptAssist
 
             // get a reference to the Output window
             output = (IVsOutputWindowPane)this.GetService(typeof(SVsGeneralOutputWindowPane));
+            var dte = (EnvDTE.DTE)this.GetService(typeof(EnvDTE.DTE));
+            assist = new AsynScriptAssist(dte);
         }
         #endregion
 
@@ -89,65 +91,23 @@ namespace Eureka.AsynScriptAssist
         /// </summary>
         private void MenuItemLoadCallback(object sender, EventArgs e)
         {
-            // Show a Message Box to prove we were here
-            IVsUIShell uiShell = (IVsUIShell)GetService(typeof(SVsUIShell));
-            Guid clsid = Guid.Empty;
-            int result;
-            Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(uiShell.ShowMessageBox(
-                       0,
-                       ref clsid,
-                       "1",
-                       string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.ToString()),
-                       string.Empty,
-                       0,
-                       OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                       OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST,
-                       OLEMSGICON.OLEMSGICON_INFO,
-                       0,        // false
-                       out result));
+            output.OutputString("load");
+            assist.load();
         }
 
         private void MenuItemNextCallback(object sender, EventArgs e)
         {
-            // Show a Message Box to prove we were here
-            IVsUIShell uiShell = (IVsUIShell)GetService(typeof(SVsUIShell));
-            Guid clsid = Guid.Empty;
-            int result;
-            Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(uiShell.ShowMessageBox(
-                       0,
-                       ref clsid,
-                       "2",
-                       string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.ToString()),
-                       string.Empty,
-                       0,
-                       OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                       OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST,
-                       OLEMSGICON.OLEMSGICON_INFO,
-                       0,        // false
-                       out result));
+            output.OutputString("next");
+            assist.next();
         }
 
         private void MenuItemPrecCallback(object sender, EventArgs e)
         {
-            // Show a Message Box to prove we were here
-            IVsUIShell uiShell = (IVsUIShell)GetService(typeof(SVsUIShell));
-            Guid clsid = Guid.Empty;
-            int result;
-            Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(uiShell.ShowMessageBox(
-                       0,
-                       ref clsid,
-                       "3",
-                       string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.ToString()),
-                       string.Empty,
-                       0,
-                       OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                       OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST,
-                       OLEMSGICON.OLEMSGICON_INFO,
-                       0,        // false
-                       out result));
+            output.OutputString("prec");
+            assist.next();
         }
 
         IVsOutputWindowPane output;
-
+        AsynScriptAssist assist;
     }
 }
