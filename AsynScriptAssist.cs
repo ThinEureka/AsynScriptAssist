@@ -24,6 +24,16 @@ namespace Eureka.AsynScriptAssist
 
         public bool load()
         {
+            if (!loadConfig())
+            {
+                return false;
+            }
+            m_breakPointIndex = 0;
+            return gotoCurBreakPoint();
+        }
+
+        private bool loadConfig()
+        {
             var solution = m_dte.Solution;
             if (solution == null || !solution.IsOpen)
             {
@@ -87,7 +97,7 @@ namespace Eureka.AsynScriptAssist
         {
             if (m_breakPoints == null)
             {
-                if (!load())
+                if (!loadConfig())
                 {
                     return false;
                 }
@@ -107,7 +117,7 @@ namespace Eureka.AsynScriptAssist
         {
             if (m_breakPoints == null)
             {
-                if (!load())
+                if (!loadConfig())
                 {
                     return false;
                 }

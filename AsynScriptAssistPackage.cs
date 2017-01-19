@@ -91,19 +91,19 @@ namespace Eureka.AsynScriptAssist
         /// </summary>
         private void MenuItemLoadCallback(object sender, EventArgs e)
         {
-            
+            output.OutputString("load ");
             assist.load();
         }
 
         private void MenuItemNextCallback(object sender, EventArgs e)
         {
-            output.OutputString("next");
+            output.OutputString("next ");
             assist.next();
         }
 
         private void MenuItemPrecCallback(object sender, EventArgs e)
         {
-            output.OutputString("prec");
+            output.OutputString("prec ");
             assist.next();
         }
 
